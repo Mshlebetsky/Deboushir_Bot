@@ -1,6 +1,14 @@
 import json
 
-with open("templates/text.json", 'r', encoding='utf-8') as f:
+# with open("templates/text.json", 'r', encoding='utf-8') as f:
+#     text = json.load(f)
+
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+JSON_PATH = BASE_DIR / "text.json"
+
+with open(JSON_PATH, "r", encoding="utf-8") as f:
     text = json.load(f)
 welcome_text = text['welcome_text']
 propose_text = text['propose_text_to_all']
