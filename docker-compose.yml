@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  deboushir_bot:
+    build: .
+    container_name: deboushir_bot
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/app
+      - ./data:/app/data   # если используешь SQLite
+
+    command: python main.py
