@@ -41,9 +41,9 @@ async def propose_post(call: CallbackQuery, state : FSMContext):
     user_id = call.from_user.id
     # admin_tags = ["hhxxhhxxh", "bananquee"]
     if user_id in ADMIN_IDS:
-        await call.message.answer(f"{propose_text_to_bonya}\n{user_id}", reply_markup=propose_kb())
+        await call.message.answer(f"{propose_text_to_bonya}", reply_markup=propose_kb())
     else:
-        await call.message.answer(f"{propose_text}\n{user_id}", reply_markup=propose_kb())
+        await call.message.answer(f"{propose_text}", reply_markup=propose_kb())
 
     await state.set_state(ProposePost.waiting_for_post)
 
