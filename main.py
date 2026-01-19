@@ -5,7 +5,12 @@ from aiogram.client.default import DefaultBotProperties
 from app.config import TOKKEN
 from app.handlers import users, admin
 
+from app.db.engine import engine, Base
+from app.db import models
+
 async def main():
+    Base.metadata.create_all(bind=engine)
+
     bot = Bot(
         TOKKEN,
         default=DefaultBotProperties(parse_mode="HTML")
